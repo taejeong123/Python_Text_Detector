@@ -7,8 +7,8 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-image_gs = cv2.imread('imgs/3.jpg', cv2.IMREAD_GRAYSCALE)
-thres_img = cv2.adaptiveThreshold(image_gs,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY ,41,3)
+image_gs = cv2.imread('imgs/eng_hand.png', cv2.IMREAD_GRAYSCALE)
+thres_img = cv2.threshold(image_gs, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
 
 print(pytesseract.image_to_string(image_gs, lang='eng'))
 
